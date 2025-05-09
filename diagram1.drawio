@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.2">
+  <diagram name="Page-1" id="B9yJV64W16g7I2Fdp275">
+    <mxGraphModel dx="1424" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MK7P6ps8Ht110PBzlqvZ-1" value="Genome Chat Bot" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="220" y="200" width="425" height="425" as="geometry" />
+        </mxCell>
+        <mxCell id="MK7P6ps8Ht110PBzlqvZ-4" value="LLM&lt;div&gt;(GPT-4)&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="300" y="290" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MK7P6ps8Ht110PBzlqvZ-5" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;RAG Databases" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;align=right;" vertex="1" parent="1">
+          <mxGeometry x="425" y="252.5" width="125" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="MK7P6ps8Ht110PBzlqvZ-6" value="VCF" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="430" y="260" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="MK7P6ps8Ht110PBzlqvZ-7" value="ClinVar" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="490" y="260" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="MK7P6ps8Ht110PBzlqvZ-8" value="Toolbox&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="230" y="450" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="MK7P6ps8Ht110PBzlqvZ-10" value="PubMed Search" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="240" y="470" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MK7P6ps8Ht110PBzlqvZ-11" value="Custom Tool" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="310" y="480" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MK7P6ps8Ht110PBzlqvZ-12" value="Custom Tool&lt;div&gt;- Interpretation Report&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="320" width="140" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
