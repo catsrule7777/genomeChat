@@ -1,5 +1,8 @@
-from clean_vcf import clean_vcf
+from merge_vcf import merge_vcf
+from clean_vcf import clean_vcf, clean_clinvar
 
-print('temp.py ran')
 
-clean_vcf('NG1ZJEINXZ_chr1.vcf', clinvar=False)
+merge_vcf('/mnt/d/Data/NG1ZJEINXZ.csv, /mnt/d/Data/clinvar.csv')
+
+#clean_vcf('/mnt/d/Data/NG1ZJEINXZ.csv')
+#clean_clinvar('/mnt/d/Data/clinvar.csv')
