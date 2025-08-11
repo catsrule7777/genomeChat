@@ -24,7 +24,7 @@ print("Loading tools...")
 tools = [fetch_from_vectorstore]
 
 print("Starting ChatOllama...")
-llm = ChatOllama(model='qwen3')
+llm = ChatOllama(model='qwen3:latest', num_ctx=8192)
 
 print("Creating react agent...")
 agent = create_react_agent(llm, tools, prompt)

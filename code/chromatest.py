@@ -22,7 +22,7 @@ def fetch_from_vectorstore(params):
     vector_store = Chroma(
         collection_name = 'langchain',
         embedding_function = embeddings,
-        persist_directory='./chroma_db'
+        persist_directory='./chromadb'
     )
 
     
@@ -30,7 +30,7 @@ def fetch_from_vectorstore(params):
     #print(vector_store.similarity_search(params))
     #return vector_store.similarity_search(params)
     # retriever = vector_store.as_retriever(search_kwargs={'k':500})
-    retriever = vector_store.as_retriever()
+    retriever = vector_store.as_retriever(search_kwargs={'k':20})
     #print(retriever.invoke(params))
     print('similarity search done')
     return retriever.invoke(params)

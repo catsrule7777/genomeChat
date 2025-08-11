@@ -5,7 +5,7 @@ from langchain.schema import Document
 import pandas as pd
 
 
-df = pd.read_csv('merged_sample.csv')
+df = pd.read_csv('merged.csv')
 
 embedding_function = OllamaEmbeddings(model='nomic-embed-text:latest')
 #loader = CSVLoader('merged.csv')
@@ -23,7 +23,7 @@ for idx in df.index:
     clnsig = df.loc[idx, 'CLNSIG_y']
 
     page_content = f'Variant at chromosome {chrom}, position {pos}. It has {clnsig} clinical significance.'
-    metadata = {'source':'merged_sample.csv', 'row':str(idx), 'chromosome':str(chrom), 'position':str(pos), 'clinical_significance':str(clnsig)}   
+    metadata = {'source':'merged.csv', 'row':str(idx), 'chromosome':str(chrom), 'position':str(pos), 'clinical_significance':str(clnsig)}   
     document = Document(page_content=page_content, metadata=metadata)
     documents.append(document)
     print(document)
@@ -31,7 +31,7 @@ for idx in df.index:
 db = Chroma.from_documents(
     documents=documents,
     embedding=embedding_function,
-    persist_directory='./chroma_db'
+    persist_directory='./chromadb'
 )
 
 
