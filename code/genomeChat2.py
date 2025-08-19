@@ -1,6 +1,7 @@
 import streamlit as st
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain_ollama import ChatOllama
+from langchain_anthropic import ChatAnthropic
 import pandas as pd
 from merge_vcf import merge_vcf
 from clean_vcf import clean_vcf, clean_clinvar
@@ -13,7 +14,7 @@ from chromatest import fetch_from_vectorstore
 print("Starting...")
 
 load_dotenv()
-api_key = os.getenv('OPENAI_KEY')
+api_key = os.getenv('ANTHROPIC_API_KEY')
 
 prompt = hub.pull("hwchase17/react")
 
@@ -24,7 +25,8 @@ print("Loading tools...")
 tools = [fetch_from_vectorstore]
 
 print("Starting ChatOllama...")
-llm = ChatOllama(model='qwen3:latest', num_ctx=8192)
+#llm = ChatOllama(model='qwen3:latest', num_ctx=8192)
+llm = ChatAnthropic(model='claude-sonnet-4-20250514')
 
 print("Creating react agent...")
 agent = create_react_agent(llm, tools, prompt)
@@ -38,14 +40,14 @@ st.title('Genome Chat 2')
 
 with st.form('form'):
     query = st.text_input('')
-    template = 'Answer in fewer than 500 words, use fetch_from_vectorstore tool for looking up info about personal genome variants and for counting those variants, do not think for too long, have at most 200 words of thinking'
+    template = 'Answer in fewer than 500 words, use fetch_from_vectorstore tool for looking up info about personal genome variants and for counting those variants, do not think for too long, have at most 200 words of thinking. Some Documents are in this form: Document(id=0d036162-6202-4763-b36c-087b584b3aab, metadata=row: 2015, position: 103005900, source:merged.csv, clinical_significance: Conflicting_classifications_of_pathogenicity, chromosome: 1, page_content=Variant at chromosome 1, position 103005900. It has Conflicting_classifications_of_pathogenicity clinical significance. When using fetch_from_vectorstore, make sure to input the users original question as its parameter question.'
 
     submit_button = st.form_submit_button('Submit')
 
     if submit_button:
         
         print("Calling agent_executor invoke...")
-        st.write(agent_executor.invoke({'input' : f'{template}\n{query}'}))
+        st.write(agent_executor.invoke({'input' : f'{template}\nquery: {query}'}))
         
         print("Completed agent_executor invoke...")
     

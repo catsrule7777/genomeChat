@@ -21,9 +21,13 @@ for idx in df.index:
     ref_y = df.loc[idx, 'REF_y']
     alt_y = df.loc[idx, 'ALT_y']
     clnsig = df.loc[idx, 'CLNSIG_y']
+    clnhgvs = df.loc[idx, 'CLNHGVS']
+    clndn = df.loc[idx, 'CLNDN']
+    geneinfo = df.loc[idx, 'GENEINFO']
 
-    page_content = f'Variant at chromosome {chrom}, position {pos}. It has {clnsig} clinical significance.'
-    metadata = {'source':'merged.csv', 'row':str(idx), 'chromosome':str(chrom), 'position':str(pos), 'clinical_significance':str(clnsig)}   
+    page_content = f'Variant at chromosome {chrom}, position {pos}. It has {clnsig} clinical significance. CLNHGVS: {clnhgvs}, clndn {clndn}, gene {geneinfo}'
+    metadata = {'source':'merged.csv', 'row':str(idx), 'chromosome':str(chrom), 'position':str(pos),
+                 'clinical_significance':str(clnsig), 'clnhgvs' : str({clnhgvs}), 'clndn' : str(clndn), 'gene' : str(geneinfo) }   
     document = Document(page_content=page_content, metadata=metadata)
     documents.append(document)
     print(document)
@@ -31,7 +35,7 @@ for idx in df.index:
 db = Chroma.from_documents(
     documents=documents,
     embedding=embedding_function,
-    persist_directory='./chromadb'
+    persist_directory='./chroma_db'
 )
 
 

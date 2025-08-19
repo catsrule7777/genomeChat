@@ -19,8 +19,17 @@ def clean_vcf(file_path):
 def clean_clinvar(file_path):
     """A tool that takes in a clinvar vcf and extracts useful informatoin, and then downloads the new df as a csv"""
     data = []
+    
     for variant in VCF(file_path):
-        d = {'CHROM' : variant.CHROM, 'POS' : variant.POS, 'REF' : variant.REF, 'ALT' : variant.ALT,'CLNSIG' : variant.INFO.get('CLNSIG', 0)}
+        
+        d = {'CHROM' : variant.CHROM, 'POS' : variant.POS, 'REF' : variant.REF, 'ALT' : variant.ALT,'CLNSIG' : variant.INFO.get('CLNSIG', 0),
+              'CLNHGVS' : variant.INFO.get('CLNHGVS', 0), 'CLNDN' : variant.INFO.get('CLNDN', 0)}
+        x = variant.INFO.get('GENEINFO', 0)
+        try:
+            a, b = x.split(':')
+            d['GENEINFO'] = a
+        except:
+            d['GENEINFO'] = 0
         data.append(d)
     df = pd.DataFrame(data)
 

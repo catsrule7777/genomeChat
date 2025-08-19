@@ -10,7 +10,8 @@ db = Chroma(persist_directory='./chroma_db', embedding_function=embedding_functi
 
 retriever = db.as_retriever()
 
-llm = ChatOllama(model='qwen3')
+#llm = ChatOllama(model='qwen3')
+llm = ChatAnthropic(model='claude-sonnet-4-20250514')
 
 template = """Answer the question based only on the following context:
 {context}
